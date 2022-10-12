@@ -9,6 +9,7 @@ export default StyleSheet.create({
     fontFamily: 'albertus_mt1',
     letterSpacing: 1,
     textAlign: 'center',
+    color:"#858585"
   },
   page_buttons: {
     flexDirection: 'row',

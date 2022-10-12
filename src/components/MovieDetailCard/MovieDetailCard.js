@@ -14,9 +14,9 @@ const MovieDetailCard = ({movieDetailItem}) => {
 
       <View style={styles.movie_desc_container}>
 
-          <DropShadow style={styles.shadow}>
+          {/* <DropShadow style={styles.shadow}> */}
             <Text style={styles.title}>{movieDetailItem.name}</Text>
-          </DropShadow>
+          {/* </DropShadow> */}
 
           <Text style={styles.movie_text}><Text style={styles.bold}>Duration:</Text> {movieDetailItem.runtimeInMinutes} mins</Text>
           <Text style={styles.movie_text}><Text style={styles.bold}>Budget In Millions:</Text> {movieDetailItem.budgetInMillions}</Text>

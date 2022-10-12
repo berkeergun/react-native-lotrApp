@@ -10,9 +10,9 @@ const ChapterCard = ({chapterItem}) => {
     <View style={styles.container}>
       
         <Animatable.View animation="fadeIn" iterationCount={1} direction="alternate">
-          <DropShadow style={styles.shadow}>
+          {/* <DropShadow style={styles.shadow}> */}
             <Text style={styles.name}>{chapterItem.chapterName}</Text>
-          </DropShadow>
+          {/* </DropShadow> */}
         </Animatable.View>
 
     </View>

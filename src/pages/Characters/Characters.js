@@ -10,11 +10,11 @@ import LinearGradient from "react-native-linear-gradient"
 import Icon from "react-native-vector-icons/MaterialCommunityIcons"
 import * as Animatable from 'react-native-animatable';
 
-
 const Characters = ({navigation}) => {
-  const char_limit=20
+  const char_limit=22
   const [page,setPage] = useState(1)
   const [name,setName] = useState("")
+  const [currentName,setCurrentName] = useState("")
   const {data,loading,error}=useFetch(Config.API_URL+`/character?limit=${char_limit}&page=${page}&name=/${name}/i`)
 
   const handleCharacterSelect = async (id) => {
@@ -60,7 +60,9 @@ const Characters = ({navigation}) => {
       
           <Animatable.View animation="pulse" iterationCount="infinite" direction="alternate">
 
-            <TextInput placeholder='Search Character...' style={styles.search} placeholderTextColor="#858585" value={name} onChangeText={e=>setName(e)} onFocus={()=>setPage(1)} />
+            <TextInput
+            onEndEditing={() => setName(currentName)}
+             style={styles.search} placeholder='Search Character...' placeholderTextColor="#858585" value={currentName} onChangeText={e=>setCurrentName(e)} onFocus={()=>setPage(1)} />
 
           </Animatable.View>
 

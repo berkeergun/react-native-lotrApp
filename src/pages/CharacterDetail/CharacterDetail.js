@@ -8,7 +8,6 @@ import Loading from '../../components/Loading/Loading'
 import Error from '../../components/Error/Error'
 import LinearGradient from "react-native-linear-gradient"
 
-
 const CharacterDetail = ({route}) => {
     const {id} = route.params
     const {data,loading,error}=useFetch(Config.API_URL+`/character/${id}`)

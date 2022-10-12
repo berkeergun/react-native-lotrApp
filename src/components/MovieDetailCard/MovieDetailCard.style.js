@@ -22,6 +22,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     color: 'black',
+    textDecorationLine:"underline"
   },
   bold: {fontWeight: 'bold'},
   movie_text: {

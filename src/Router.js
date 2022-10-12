@@ -2,17 +2,19 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Books from './pages/Books/Books';
-import BookChapter from "./pages/BookChapter/BookChapter";
+import BookChapter from './pages/BookChapter/BookChapter';
 
-import Movies from "./pages/Movies/Movies"
-import MovieDetail from "./pages/MovieDetail/MovieDetail"
+import Movies from './pages/Movies/Movies';
+import MovieDetail from './pages/MovieDetail/MovieDetail';
 
 import Characters from './pages/Characters/Characters';
-import CharacterDetail from "./pages/CharacterDetail/CharacterDetail"
+import CharacterDetail from './pages/CharacterDetail/CharacterDetail';
+
+import Maps from './pages/Maps/Maps';
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -28,8 +30,7 @@ const BookStack = () => {
           headerTitle: 'Books',
           headerTintColor: '#fff',
           headerStyle: {backgroundColor: '#8e5232'},
-          headerTitleStyle:{fontFamily:"albertus_mt1"}
-          
+          headerTitleStyle: {fontFamily: 'albertus_mt1'},
         }}
       />
       <Stack.Screen
@@ -41,7 +42,7 @@ const BookStack = () => {
           headerTitle: 'Chapters',
           headerTintColor: '#fff',
           headerStyle: {backgroundColor: '#8e5232'},
-          headerTitleStyle:{fontFamily:"albertus_mt1"}
+          headerTitleStyle: {fontFamily: 'albertus_mt1'},
         }}
       />
     </Stack.Navigator>
@@ -60,7 +61,7 @@ const MovieStack = () => {
           headerTitle: 'Movies',
           headerTintColor: '#fff',
           headerStyle: {backgroundColor: '#8e5232'},
-          headerTitleStyle:{fontFamily:"albertus_mt1"}
+          headerTitleStyle: {fontFamily: 'albertus_mt1'},
         }}
       />
       <Stack.Screen
@@ -72,7 +73,7 @@ const MovieStack = () => {
           headerTitle: 'Movie Details',
           headerTintColor: '#fff',
           headerStyle: {backgroundColor: '#8e5232'},
-          headerTitleStyle:{fontFamily:"albertus_mt1"}
+          headerTitleStyle: {fontFamily: 'albertus_mt1'},
         }}
       />
     </Stack.Navigator>
@@ -91,7 +92,7 @@ const CharacterStack = () => {
           headerTitle: 'Characters',
           headerTintColor: '#fff',
           headerStyle: {backgroundColor: '#8e5232'},
-          headerTitleStyle:{fontFamily:"albertus_mt1",}
+          headerTitleStyle: {fontFamily: 'albertus_mt1'},
         }}
       />
       <Stack.Screen
@@ -103,7 +104,26 @@ const CharacterStack = () => {
           headerTitle: 'Character Details',
           headerTintColor: '#fff',
           headerStyle: {backgroundColor: '#8e5232'},
-          headerTitleStyle:{fontFamily:"albertus_mt1"}
+          headerTitleStyle: {fontFamily: 'albertus_mt1'},
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const MapsStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        name="MapsPage"
+        component={Maps}
+        options={{
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerTitle: 'Maps',
+          headerTintColor: '#fff',
+          headerStyle: {backgroundColor: '#8e5232'},
+          headerTitleStyle: {fontFamily: 'albertus_mt1'},
         }}
       />
     </Stack.Navigator>
@@ -111,7 +131,6 @@ const CharacterStack = () => {
 };
 
 const Router = () => {
-
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -120,11 +139,15 @@ const Router = () => {
           tabBarIcon: ({focused}) => {
             let iconName;
             if (route.name === 'Book') {
-              iconName = focused ? 'book-open-page-variant' : 'book-open-page-variant-outline';
+              iconName = focused
+                ? 'book-open-page-variant'
+                : 'book-open-page-variant-outline';
             } else if (route.name === 'Movie') {
               iconName = focused ? 'movie-open' : 'movie-open-outline';
             } else if (route.name === 'Character') {
               iconName = focused ? 'account-star' : 'account-star-outline';
+            } else if (route.name === 'Map') {
+              iconName = focused ? 'map' : 'map-legend';
             }
             return <Icon name={iconName} size={24} color="#fff" />;
           },
@@ -135,28 +158,41 @@ const Router = () => {
           headerShown: false,
           tabBarLabelStyle: {fontSize: 14},
         })}>
-        <Tab.Screen name="Book" component={BookStack} options={{title:"Books",tabBarLabelStyle:{fontFamily:"albertus_mt1",fontSize:16}}} />
+        <Tab.Screen
+          name="Book"
+          component={BookStack}
+          options={{
+            title: 'Books',
+            tabBarLabelStyle: {fontFamily: 'albertus_mt1', fontSize: 16},
+          }}
+        />
+
         <Tab.Screen
           name="Movie"
           component={MovieStack}
-          options={{title:"Movies",tabBarLabelStyle:{fontFamily:"albertus_mt1",fontSize:16}}}
-          // options={{
-          //   tabBarBadge: favorites > 0 ? favorites : null,
-          //   tabBarBadgeStyle: {
-          //     backgroundColor: '#0076b5',
-          //     color: '#fff',
-          //     borderColor: '#fff',
-          //     borderWidth: 2,
-          //     marginLeft: 9,
-          //   },
-          // }}
+          options={{
+            title: 'Movies',
+            tabBarLabelStyle: {fontFamily: 'albertus_mt1', fontSize: 16},
+          }}
         />
+
         <Tab.Screen
           name="Character"
           component={CharacterStack}
-          options={{title:"Characters",tabBarLabelStyle:{fontFamily:"albertus_mt1",fontSize:16}}}
-          
-          />
+          options={{
+            title: 'Characters',
+            tabBarLabelStyle: {fontFamily: 'albertus_mt1', fontSize: 16},
+          }}
+        />
+
+        <Tab.Screen
+          name="Map"
+          component={MapsStack}
+          options={{
+            title: 'Maps',
+            tabBarLabelStyle: {fontFamily: 'albertus_mt1', fontSize: 16},
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

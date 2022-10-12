@@ -7,7 +7,8 @@ import DropShadow from "react-native-drop-shadow";
 
 
 const CharacterDetailCard = ({characterDetailItem}) => {
-  console.log(characterDetailItem.name , characterDetailItem._id )
+  // console.log(characterDetailItem.name , characterDetailItem._id )
+  // console.log(characterDetailItem )
 
     return (
     <View style={styles.container}>
