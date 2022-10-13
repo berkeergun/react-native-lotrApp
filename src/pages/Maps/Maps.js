@@ -56,7 +56,7 @@ import React from 'react';
 import styles from './Maps.style';
 import LinearGradient from 'react-native-linear-gradient';
 import ImageZoom from 'react-native-image-pan-zoom';
-const imagePath = require('../../../assets/images/lotrmap.jpg');
+const imagePath = require('../../../assets/images/lotrmap.png');
 const {width, height} = Image.resolveAssetSource(imagePath);
 
 const Maps = () => {

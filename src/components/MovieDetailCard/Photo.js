@@ -3,7 +3,7 @@ export const Photo = (id) => {
     let image;
 
     if( id === "5cd95395de30eff6ebccde5c" ){
-    image= require("../../../assets/images/1.jpg")}
+    image= require("../../../assets/images/1.png")}
     
     if( id === "5cd95395de30eff6ebccde5b" ){
     image = require("../../../assets/images/2.png")}
